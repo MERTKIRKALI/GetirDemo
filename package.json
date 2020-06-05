@@ -1,0 +1,27 @@
+{
+  "name": "getirdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MERTKIRKALI/GetirDemo.git"
+  },
+  "author": "MertMehnurKIRKALI",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.17"
+  },
+  "devDependencies": {
+    "jest": "^25.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/MERTKIRKALI/GetirDemo/issues"
+  },
+  "homepage": "https://github.com/MERTKIRKALI/GetirDemo#readme"
+}
