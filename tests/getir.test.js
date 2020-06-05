@@ -49,13 +49,13 @@ it('Fetch records with bad request', () => {
     return business.fetchRecords(badRequest.body).then(data => expect(data.length).toEqual(0));
 });
 
-
+const PORT = process.env.PORT || 3000;
 
 beforeEach(() => {
     if (app.server.listening)
         app.server.close();
 
-    app.server.listen(3000);
+    app.server.listen(PORT);
 });
 
 afterEach(() => {

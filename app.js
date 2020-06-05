@@ -3,12 +3,12 @@ const express = require('express');
 const moment = require('moment');
 const business = require('./business.js');
 const app = express();
-const port = 3000;
 const unwantedKeyList = ['_id'];
 var errMessage = '';
 var errResponse = { code: 0, msg: errMessage };
+const PORT = process.env.PORT || 3000;
 
-var server = app.listen(port);
+var server = app.listen(PORT);
 
 //Middlewares
 app.use(express.json());
