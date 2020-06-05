@@ -20,12 +20,11 @@ let fetchRecords = function (request) {
                         }
                     }
                 },
-                { "$match": { createdAt: { $gt: new Date(Date.parse(request.body.startDate)), $lt: new Date(Date.parse(request.body.endDate)) }, totalCount: { $gt: request.body.minCount, $lt: request.body.maxCount } } },
+                { "$match": { createdAt: { $gt: new Date(Date.parse(request.startDate)), $lt: new Date(Date.parse(request.endDate)) }, totalCount: { $gt: request.minCount, $lt: request.maxCount } } },
 
                 { "$project": { "key": "$key", "createdAt": "$createdAt", "totalCount": "$totalCount", } }
 
             ]).exec((err, records) => {
-                console.log('2')
                 database.closeConnection();
 
                 if (!!err) {
