@@ -8,7 +8,7 @@ var errMessage = '';
 var errResponse = { code: 0, msg: errMessage };
 const PORT = process.env.PORT || 3000;
 
-var server = app.listen(PORT);
+var server = app.listen(PORT, '0.0.0.0');
 
 //Middlewares
 app.use(express.json());
