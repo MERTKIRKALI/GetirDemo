@@ -17,7 +17,7 @@ app.use(function (error, req, res, next) {
     if (!!error) {
         errMessage = 'Please send proper JSON data.';
         errResponse = { code: 400, msg: errMessage }
-        res.status(400).send(JSON.stringify(errResponse));
+        res.status(400).json(errResponse);
     } else {
         next();
     }
@@ -29,12 +29,12 @@ app.use(checkRequestMiddleware);
 app.post('/getir', (req, res) => {
     business.fetchRecords(req.body).then((records => {
         const SuccessObject = { code: 0, msg: 'Success', records };
-        res.status(200).send(JSON.stringify(SuccessObject, replacer));
+        res.status(200).json(JSON.parse(JSON.stringify(SuccessObject, replacer)));
     })).catch((err) => {
         //500 Internal Server Error
         errMessage = 'Database Error';
         errResponse = { code: 500, msg: errMessage }
-        res.status(500).send(JSON.stringify(errResponse));
+        res.status(500).json(errResponse);
     })
 })
 
@@ -43,7 +43,7 @@ app.post('/getir', (req, res) => {
 app.get('*/*', (req, res) => {
     errMessage = 'Only POST request allowed.';
     errResponse = { code: 400, msg: errMessage }
-    res.status(400).send(JSON.stringify(errResponse));
+    res.status(400).json(errResponse);
 })
 
 
@@ -62,7 +62,7 @@ function checkRequestMiddleware(req, res, next) {
     } else {
         errMessage = 'Bad Request Data';
         errResponse = { code: 400, msg: errMessage }
-        res.status(400).send(JSON.stringify(errResponse));
+        res.status(400).json(errResponse);
 
     }
 
